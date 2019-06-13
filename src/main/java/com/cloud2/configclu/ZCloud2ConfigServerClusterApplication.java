@@ -1,13 +1,17 @@
 package com.cloud2.configclu;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.config.server.EnableConfigServer;
 
+@EnableDiscoveryClient
+@EnableConfigServer
 @SpringBootApplication
 public class ZCloud2ConfigServerClusterApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ZCloud2ConfigServerClusterApplication.class, args);
+        new SpringApplicationBuilder(ZCloud2ConfigServerClusterApplication.class).web(true).run(args);
     }
 
 }
